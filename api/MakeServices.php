@@ -34,7 +34,7 @@ class MakeServices extends PostDataRequestAbstract
     * @throws            - Exception when Repository Name and the User name not in the repository URL.
     * @throws            - Exception when Repository URL seems to be incorrect.
     * @throws            - Exception when invalid URL in the Params.
-	*/
+    */
 
     public function ValidateServiceParams() {
 	    $ParametersArray                     = array();                         //An $ParametersArray array to store all the input parameters
@@ -55,12 +55,12 @@ class MakeServices extends PostDataRequestAbstract
 		 	      throw new Exception("\n\n invalid comman it must be in format.\n e.g. php FileName -u YourAppUsername -p YourAppPassword RepositoryURL/:username/:repository  'Title String' 'Description String' \n\n");
      		      return false;
      		}else{
-		        /**
-			     * parse_url to get the domain from the URL entered in the arguments  [http://php.net/manual/en/function.parse-url.php]
-			     * Inspecting the repository url
-			     * @return - Array With indexes as the domain, Username and the repository name
-			     */
-			     $repositoryUrlDetails                          = parse_url($ParametersArray['repositoryUrl']);
+		         /**
+			      * parse_url to get the domain from the URL entered in the arguments  [http://php.net/manual/en/function.parse-url.php]
+			      * Inspecting the repository url
+			      * @return - Array With indexes as the domain, Username and the repository name
+			      */
+			     $repositoryUrlDetails  =  parse_url($ParametersArray['repositoryUrl']);
 
 				 if (isset($repositoryUrlDetails['host']) && ! empty($repositoryUrlDetails['host'])) {
 					   $urlPath              = explode("/", $repositoryUrlDetails['path']);
