@@ -11,7 +11,6 @@
  */
 
 /**
-/**
  * Class Name: GitHubApi
  * Child Class that extends PostDataRequestAbstract Abstract Class
  * @function PUBLIC PostDataLog
@@ -51,6 +50,6 @@ class GitHubApi extends PostDataRequestAbstract
    return $result;
   }
 }
-/* PostGitHubIssue Class End Here  */
+/* GitHubApi Class End Here  */
 
 ?>

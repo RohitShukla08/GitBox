@@ -11,7 +11,6 @@
  */
 
 /**
-/**
  * Class Name: BitBucketApi
  * Child Class that extends PostDataRequestAbstract Abstract Class
  * @function PUBLIC PostDataLog
@@ -50,5 +49,5 @@ class BitBucketApi extends PostDataRequestAbstract
      return $result;
    }
 }
-/* PostBitBucketIssue Class End Here  */
+/* BitBucketApi Class End Here  */
 ?>
