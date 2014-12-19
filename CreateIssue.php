@@ -25,29 +25,29 @@ function __autoload($ClassName) {
  * Error Handling Om Main Part of the Program Executions
  * @throws Exception when data not posted on Repository and return some error
  */
+try
+ {  // try body here
+ /**
+  * MakeServices Class
+  * Validate URL to check if it is a valid url - define a standard function in class
+  * Validate if repository is one of the supported from your scripts
+  * Validate Parameter count, report error is count not as expected
+  * @return  Api input parameters
+  */
 
-	try
-	{  // try body here
-	   /**
-	    * MakeServices Class
-        * Validate URL to check if it is a valid url - define a standard function in class
-        * Validate if repository is one of the supported from your scripts
-        * Validate Parameter count, report error is count not as expected
-        * @return  Api input parameters
-        */
-		  $ServicesObject        = new MakeServices();
-		  $ServiceData           = $ServicesObject->ValidateServiceParams();
-		  $ObjectClassName       = $ServiceData['ClassName'];
-		  $repositoryOwnerName   = $ServiceData['repositoryOwnerName'];
-		  $repositoryName        = $ServiceData['repositoryName'];
-		  $LogIssueObject        = new $ObjectClassName(); // Call _autoload function
-		  $resultPostIssue       = $LogIssueObject->PostDataLog($ServiceData, $repositoryOwnerName, $repositoryName);
-		   if (isset($resultPostIssue['result']) && $resultPostIssue['result']) {
-		        echo $resultPostIssue['message'];
-		   } else {
-		        $e   = new Exception($resultPostIssue['message']);
-		        throw $e;
-		   }
+    $ServicesObject        = new MakeServices();
+    $ServiceData           = $ServicesObject->ValidateServiceParams();
+    $ObjectClassName       = $ServiceData['ClassName'];
+    $repositoryOwnerName   = $ServiceData['repositoryOwnerName'];
+    $repositoryName        = $ServiceData['repositoryName'];
+    $LogIssueObject        = new $ObjectClassName(); // Call _autoload function
+    $resultPostIssue       = $LogIssueObject->PostDataLog($ServiceData, $repositoryOwnerName, $repositoryName);
+    if (isset($resultPostIssue['result']) && $resultPostIssue['result']) {
+    	echo $resultPostIssue['message'];
+    } else {
+    	$e   = new Exception($resultPostIssue['message']);
+    	throw $e;
+    	}
 	} catch(Exception $e){ // catch body here
 		echo "Error Occured. ".$e->getMessage()."\n\n";
 		return false;
