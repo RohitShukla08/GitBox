@@ -26,14 +26,15 @@ function __autoload($ClassName) {
  * @throws Exception when data not posted on Repository and return some error
  */
 
-	try {  // try body here
-		 /**
-		  * MakeServices Class
-          * Validate URL to check if it is a valid url - define a standard function in class
-          * Validate if repository is one of the supported from your scripts
-          * Validate Parameter count, report error is count not as expected
-          * @return  Api input parameters
-          */
+	try
+	{  // try body here
+	   /**
+	    * MakeServices Class
+        * Validate URL to check if it is a valid url - define a standard function in class
+        * Validate if repository is one of the supported from your scripts
+        * Validate Parameter count, report error is count not as expected
+        * @return  Api input parameters
+        */
 		  $ServicesObject        = new MakeServices();
 		  $ServiceData           = $ServicesObject->ValidateServiceParams();
 		  $ObjectClassName       = $ServiceData['ClassName'];
