@@ -20,29 +20,29 @@
 class MakeServices extends PostDataRequestAbstract
 {
    /**
-	* Function Name : ValidateServiceParams()
-	* Function to check the required details are passed as arguments to the script in the command line
-	* If no arguments are passed, then asks users to enter each argument manually
-	* Script Requires following parameters:
-	* username           - Name of the user posting the issue
-	* password           - Password of the user posting the issue
-	* repositoryUrl      - The URL of the repository where issue is to be posted
-	* issueTitle         - The Title of the issue
-	* issueDescription   - The Description of the issue
-	* @return            - Return Array all Store passed argument
+    * Function Name : ValidateServiceParams()
+    * Function to check the required details are passed as arguments to the script in the command line
+    * If no arguments are passed, then asks users to enter each argument manually
+    * Script Requires following parameters:
+    * username           - Name of the user posting the issue
+    * password           - Password of the user posting the issue
+    * repositoryUrl      - The URL of the repository where issue is to be posted
+    * issueTitle         - The Title of the issue
+    * issueDescription   - The Description of the issue
+    * @return            - Return Array all Store passed argument
     * @throws            - Exception for invalid command
     * @throws            - Exception when Repository Name and the User name not in the repository URL.
     * @throws            - Exception when Repository URL seems to be incorrect.
     * @throws            - Exception when invalid URL in the Params.
 	*/
 
-   public function ValidateServiceParams() {
-	     $ParametersArray                     = array();                         //An $ParametersArray array to store all the input parameters
-	     $ParametersArray['username']         = trim($_SERVER['argv'][2]);      //Get User name is passed as an argument
-         $ParametersArray['password']         = trim($_SERVER['argv'][4]);     //Get Password is passed as an argument
-		 $ParametersArray['repositoryUrl']    = trim($_SERVER['argv'][5]);    //Get repository Name is passed as an argument
-         $ParametersArray['issueTitle']       = trim($_SERVER['argv'][6]);   //Get Title String is passed as an argument
-		 $ParametersArray['issueDescription'] = trim($_SERVER['argv'][7]);  // Get Description String are passed as an argument
+    public function ValidateServiceParams() {
+	    $ParametersArray                     = array();                         //An $ParametersArray array to store all the input parameters
+	    $ParametersArray['username']         = trim($_SERVER['argv'][2]);      //Get User name is passed as an argument
+        $ParametersArray['password']         = trim($_SERVER['argv'][4]);     //Get Password is passed as an argument
+        $ParametersArray['repositoryUrl']    = trim($_SERVER['argv'][5]);    //Get repository Name is passed as an argument
+        $ParametersArray['issueTitle']       = trim($_SERVER['argv'][6]);   //Get Title String is passed as an argument
+        $ParametersArray['issueDescription'] = trim($_SERVER['argv'][7]);  // Get Description String are passed as an argument
 
 		 if( trim($_SERVER['argv'][1]) !='-u' ||
 		     trim($_SERVER['argv'][3]) !='-p' ||
@@ -55,12 +55,12 @@ class MakeServices extends PostDataRequestAbstract
 		 	      throw new Exception("\n\n invalid comman it must be in format.\n e.g. php FileName -u YourAppUsername -p YourAppPassword RepositoryURL/:username/:repository  'Title String' 'Description String' \n\n");
      		      return false;
      		}else{
-		     	  /**
-			       * parse_url to get the domain from the URL entered in the arguments  [http://php.net/manual/en/function.parse-url.php]
-			       * Inspecting the repository url
-			       * @return - Array With indexes as the domain, Username and the repository name
-			       */
-			     $repositoryUrlDetails  = parse_url($ParametersArray['repositoryUrl']);
+		        /**
+			     * parse_url to get the domain from the URL entered in the arguments  [http://php.net/manual/en/function.parse-url.php]
+			     * Inspecting the repository url
+			     * @return - Array With indexes as the domain, Username and the repository name
+			     */
+			     $repositoryUrlDetails                          = parse_url($ParametersArray['repositoryUrl']);
 
 				 if (isset($repositoryUrlDetails['host']) && ! empty($repositoryUrlDetails['host'])) {
 					   $urlPath              = explode("/", $repositoryUrlDetails['path']);
@@ -75,11 +75,11 @@ class MakeServices extends PostDataRequestAbstract
 					 * Determine which service to use by inspecting the repository url.
 					 * To Extend Service just add extend if else condition before end else
 					 */
-					   if ($repositoryUrlDetails['host'] == 'github.com' || $repositoryUrlDetails['host'] == 'www.github.com') {
+					   if ( $repositoryUrlDetails['host'] == 'github.com' || $repositoryUrlDetails['host'] == 'www.github.com') {
 							 $ParametersArray['ClassName']      = 'GitHubApi';    //File Name GitHubApi.php
-					   } else if ($repositoryUrlDetails['host'] == 'bitbucket.org' || $repositoryUrlDetails['host'] == 'www.bitbucket.org') {
+					   } else if ( $repositoryUrlDetails['host'] == 'bitbucket.org' || $repositoryUrlDetails['host'] == 'www.bitbucket.org') {
 					   	    $ParametersArray['ClassName']      = 'BitBucketApi'; //File Name BitBucketApi.php
-					   }/* else if ($repositoryUrlDetails['host'] == 'NewHostName' || $repositoryUrlDetails['host'] == 'www.NewHostName') {
+					   }/* else if ( $repositoryUrlDetails['host'] == 'NewHostName' || $repositoryUrlDetails['host'] == 'www.NewHostName') {
 					   		$ParametersArray['ClassName']      = 'NewClassFileName';
 					   }
 					   */
