@@ -37,29 +37,29 @@ class MakeServices extends PostDataRequestAbstract
     */
 
     public function ValidateServiceParams() {
-	    $ParametersArray                     = array();                         //An $ParametersArray array to store all the input parameters
-	    $ParametersArray['username']         = trim($_SERVER['argv'][2]);      //Get User name is passed as an argument
+        $ParametersArray                     = array();                         //An $ParametersArray array to store all the input parameters
+        $ParametersArray['username']         = trim($_SERVER['argv'][2]);      //Get User name is passed as an argument
         $ParametersArray['password']         = trim($_SERVER['argv'][4]);     //Get Password is passed as an argument
         $ParametersArray['repositoryUrl']    = trim($_SERVER['argv'][5]);    //Get repository Name is passed as an argument
         $ParametersArray['issueTitle']       = trim($_SERVER['argv'][6]);   //Get Title String is passed as an argument
         $ParametersArray['issueDescription'] = trim($_SERVER['argv'][7]);  // Get Description String are passed as an argument
-
-		 if( trim($_SERVER['argv'][1]) !='-u' ||
-		     trim($_SERVER['argv'][3]) !='-p' ||
-		     trim($ParametersArray['username']) =='' ||
-		     trim($ParametersArray['password']) =='' ||
-		     trim($ParametersArray['repositoryUrl']) =='' ||
-		     trim($ParametersArray['issueTitle']) =='' ||
-		     trim($ParametersArray['issueDescription']) ==''
-		 	){
-		 	      throw new Exception("\n\n invalid comman it must be in format.\n e.g. php FileName -u YourAppUsername -p YourAppPassword RepositoryURL/:username/:repository  'Title String' 'Description String' \n\n");
-     		      return false;
+		if( trim($_SERVER['argv'][1]) !='-u' ||
+		    trim($_SERVER['argv'][3]) !='-p' ||
+		    trim($ParametersArray['username']) =='' ||
+		    trim($ParametersArray['password']) =='' ||
+		    trim($ParametersArray['repositoryUrl']) =='' ||
+		    trim($ParametersArray['issueTitle']) =='' ||
+		    trim($ParametersArray['issueDescription']) ==''
+		 )
+		 {
+		       throw new Exception("\n\n invalid comman it must be in format.\n e.g. php FileName -u YourAppUsername -p YourAppPassword RepositoryURL/:username/:repository  'Title String' 'Description String' \n\n");
+     	       return false;
      		}else{
-		         /**
-			      * parse_url to get the domain from the URL entered in the arguments  [http://php.net/manual/en/function.parse-url.php]
-			      * Inspecting the repository url
-			      * @return - Array With indexes as the domain, Username and the repository name
-			      */
+                 /**
+                  * parse_url to get the domain from the URL entered in the arguments  [http://php.net/manual/en/function.parse-url.php]
+                  * Inspecting the repository url
+                  * @return - Array With indexes as the domain, Username and the repository name
+                   */
 			     $repositoryUrlDetails  =  parse_url($ParametersArray['repositoryUrl']);
 
 				 if (isset($repositoryUrlDetails['host']) && ! empty($repositoryUrlDetails['host'])) {
