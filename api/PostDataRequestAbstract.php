@@ -27,7 +27,9 @@ abstract class PostDataRequestAbstract
     * @param  - String  $repositoryName        The Name of the repository as extracted from the repository URL
     * @return - Array                          The result of the API call
     */
+
    abstract protected function PostDataLog($inputData, $repositoryOwnerName, $repositoryName);
+
    /**
     * Function to Build API Call to the URL passed as parameter
     * @param  - String  $url             The URL to which api call is to be made
@@ -42,7 +44,7 @@ abstract class PostDataRequestAbstract
      	// PHP Client URL Library [http://php.net/manual/en/book.curl.php]
 	     $ClientUrlLib        = curl_init();
 	     //set the url
-         curl_setopt($ClientUrlLib, CURLOPT_URL, $url);
+	     curl_setopt($ClientUrlLib, CURLOPT_URL, $url);
 	     curl_setopt($ClientUrlLib, CURLOPT_USERAGENT, 'User-Agent: Issue Creation Script');
 
 	     if ($jsonDecodeData) {
