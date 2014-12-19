@@ -22,21 +22,18 @@ Step 2) Save the Files
 		  |--|api|GitHubApi.php
 Step 3) Open command prompt.
 =============  Manually enter the input parameters from the command line =================================
-Step 4)
-	php CreateIssue.php -u YourAppUsername -p YourAppPassword RepositoryURL  'Title String' 'Description String'
-
+Step 4)  php CreateIssue.php -u YourAppUsername -p YourAppPassword RepositoryURL  'Title String' 'Description String'
 
 NOTE: This script uses CURL to connect to APIs, Please uncomment the extension=php_curl.dll extension in the php.ini file for windows and/or use the following commands in Linux(Ubuntu) sudo apt-get install php5-curl sudo /etc/init.d/apache2 restart to enable this script to execute
 
 ============= Extend Application =========================================================================
 
 To Extend Application :
- Step 1)
- 	Create php file under api folder MYNewApp.php and write class MYNewApp with method PostDataLog($Input,$Owner,$RName) as per requirement, filename and class name must be same.
+ Step 1) Create php file under api folder MYNewApp.php and write class MYNewApp with method PostDataLog($Input,$Owner,$RName) as per requirement, filename and class name must be same.
  Step 2) Update MakeServices.php method ValidateServiceParams replace accordgily.
 
 e.g.
-	if ($repositoryUrlDetails['host'] == 'github.com' || $repositoryUrlDetails['host'] == 'www.github.com') {
+   if ($repositoryUrlDetails['host'] == 'github.com' || $repositoryUrlDetails['host'] == 'www.github.com') {
 		 $ParametersArray['ClassName']      = 'GitHubApi';
    } else if ($repositoryUrlDetails['host'] == 'bitbucket.org' || $repositoryUrlDetails['host'] == 'www.bitbucket.org') {
    	    $ParametersArray['ClassName']      = 'BitBucketApi';
