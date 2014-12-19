@@ -59,7 +59,7 @@ class MakeServices extends PostDataRequestAbstract
                   * parse_url to get the domain from the URL entered in the arguments  [http://php.net/manual/en/function.parse-url.php]
                   * Inspecting the repository url
                   * @return - Array With indexes as the domain, Username and the repository name
-                   */
+                  */
 			     $repositoryUrlDetails  =  parse_url($ParametersArray['repositoryUrl']);
 
 				 if (isset($repositoryUrlDetails['host']) && ! empty($repositoryUrlDetails['host'])) {
