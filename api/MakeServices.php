@@ -30,7 +30,6 @@ class MakeServices extends PostDataRequestAbstract
 	* issueTitle         - The Title of the issue
 	* issueDescription   - The Description of the issue
 	* @return            - Return Array all Store passed argument
-	*
     * @throws            - Exception for invalid command
     * @throws            - Exception when Repository Name and the User name not in the repository URL.
     * @throws            - Exception when Repository URL seems to be incorrect.
