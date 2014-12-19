@@ -4,7 +4,7 @@
  * This script will create issues(tickets) in Bitbucket account
  *  Module written by Rohit Shukla <rohitshukla08@gmail.com>
  *  The author of the Post issue on repository module is Rohit Shukla
- *  @version 0.1.0: PostIssuesRequest.php,v 1.0 Dec 18, 2014 22:30:49
+ *  @version 0.1.0: BitBucketApi.php,v 1.0 Dec 18, 2014 22:30:49
  *  @copyright (C) 2014 - 2014 Rohitshukla08
  *  @author   Rohit Shukla <rohitshukla08@gmail.com>
  *  @link  'https://confluence.atlassian.com/display/BITBUCKET/Bitbucket+Documentation+Home'

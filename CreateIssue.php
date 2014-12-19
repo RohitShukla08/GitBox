@@ -1,12 +1,11 @@
 <?php
 /*
  * Created on Dec 17, 2014
- * This script will create issues(tickets) in Github/Bitbucket account
- *  Module written by Rohit Shukla <rohitshukla08@gmail.com>
- *  The author of the Post issue on repository module is Rohit Shukla
- *  @version 0.1.0: PostIssuesRequest.php,v 1.0 Dec 18, 2014 21:10:07
- *  @copyright (C) 2014 - 2014 Rohitshukla08
- *  @author   Rohit Shukla <rohitshukla08@gmail.com>
+ * This is mail script will execute api according to RepositoryURL.
+ * Module written by Rohit Shukla <rohitshukla08@gmail.com>
+ * @version 0.1.0: CreateIssue.php,v 1.0 Dec 17, 2014 21:10:07
+ * @copyright (C) 2014 - 2014 Rohitshukla08
+ * @author   Rohit Shukla <rohitshukla08@gmail.com>
  */
 
 /**
