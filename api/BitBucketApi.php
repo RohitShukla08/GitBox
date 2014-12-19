@@ -28,8 +28,12 @@ class BitBucketApi extends PostDataRequestAbstract
        $bitBucketUrlToPostIssue = "https://bitbucket.org/api/1.0/repositories/{$repositoryOwnerName}/{$repositoryName}/issues";
       // Creates an array of post data
        $postData = array(
-          'title' => $inputData['issueTitle'],
-          'content' => $inputData['issueDescription']
+          'title'    => $inputData['issueTitle'],
+          'content'  => $inputData['issueDescription'],
+          'kind'     =>'task',
+          'priority' =>'minor',
+          'status'   =>'new'
+
        );
        // Calls the function to make api call to the BitBucket and create a new post
        $postIssueResultEnocoded = $this->ServicesApiCall($bitBucketUrlToPostIssue, $inputData['username'], $inputData['password'], $postData, FALSE);

@@ -29,8 +29,8 @@ class GitHubApi extends PostDataRequestAbstract
       $gitHubUrlToPostIssue = "https://api.github.com/repos/{$repositoryOwnerName}/{$repositoryName}/issues";
       // Creates an array of post data
       $postData = array(
-         'title' => $inputData['issueTitle'],
-         'body' => $inputData['issueDescription']
+         'title'  => $inputData['issueTitle'],
+         'body'   => $inputData['issueDescription']
      );
      // Calls the function to make api call to the GitHub and create a new post
      $postIssueResultEnocoded = $this->ServicesApiCall($gitHubUrlToPostIssue, $inputData['username'], $inputData['password'], $postData, TRUE);
